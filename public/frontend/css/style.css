@@ -1,0 +1,498 @@
+/* import section  */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('utilities.css');
+@import url('visa-details.css');
+/* import section  */
+
+
+/* here started the variable section */
+:root {
+    --primary-color: #FFCD07;
+    --secondary-color: #0B7CC1;
+    --grey-color: #F7F7F7;
+    /* --primary-font: 'Montserrat', sans-serif; */
+    --primary-font: 'Roboto', sans-serif;
+
+
+
+}
+
+
+/* here ended the variable section */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--primary-font);
+}
+
+/* bootstrap overridden code started here */
+
+
+
+
+/* bootstrap overridden code ended here */
+
+
+/* reset code  */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+/* reset code  */
+
+/*-------------------------|Code Started|-------------------------------*/
+
+/* here started the navbar section / */
+
+nav {
+    box-shadow: 0px 7px 9px 1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 7px 9px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 7px 9px 1px rgba(0, 0, 0, 0.5);
+}
+
+nav .user-btn {
+    width: 10%;
+}
+
+nav .user-btn i {
+    font-size: 30px;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+nav .navbar-brand {
+    width: 10%;
+}
+
+nav .navbar-brand img {
+    width: 100%;
+}
+
+.nav-item {
+    margin: 0px 10px;
+}
+
+.nav-item a {
+    color: #636e72;
+}
+
+.nav-item a:hover {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* here ended the navbar section  */
+
+
+
+/* here started the hero section  */
+.hero {
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: var(--grey-color);
+    height: 100vh;
+}
+
+.hero .bg-img img {
+    width: 100%;
+    height: 500px;
+    position: absolute;
+
+}
+
+.hero .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.hero .content .tabs {
+    position: absolute;
+    width: 80%;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.hero .content .tabs .title {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.hero .content .tabs .tab-window {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+}
+
+
+.hero .content .tabs .tab-window .tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(179, 162, 162);
+}
+
+.hero .content .tabs .tab-window .tab-buttons .tab-btn {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 60px;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.hero .content .tabs .tab-window .tab-buttons .tab-btn i {
+    margin-right: 15px;
+    color: #636e72;
+}
+
+.hero .content .tabs .tab-window .tab-content {
+    padding: 10px;
+    width: 100%;
+}
+
+
+.hero .content .tabs .tab-window .tab-content .tab-content-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+
+/* hotel tab section css started */
+.hero .content .tabs .tab-window .tab-content .single-tab {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .header-tabs {
+    background-color: #fff;
+    width: 40%;
+    border-radius: 50px;
+    height: 40px;
+    overflow: hidden;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.5);
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .header-tabs .flight-header-single-tab {
+    cursor: pointer;
+    width: 33.33%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s;
+
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .header-tabs .flight-header-single-tab .flight-header-single-tab-name {
+    font-size: 14px;
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .header-tabs .active {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .search-box {
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 100%;
+    margin: 5px 0px;
+}
+
+
+/* here started the select2 overridden css  */
+
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .search-box .text-field .select2-search--dropdown .select2-search__field {
+    width: 98%;
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .search-box .text-field .select2-container {
+    width: 100% !important;
+}
+
+/* here ended the select2 overridden css  */
+
+/* here ended the search result  */
+
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .search-box .text-field {
+    width: 100%;
+    padding: 10px 15px;
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .text-field .label {
+    font-size: 13px;
+    color: grey;
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .text-field .search-text {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    width: 100%;
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .text-field .small {
+    width: 50%;
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .text-field .search-text:focus {
+    outline: none;
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .text-field .search-text::placeholder {
+    font-size: 18px;
+}
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .text-field .details .search-limit-details {
+    font-size: 14px;
+}
+
+
+.hero .content .tabs .tab-window .tab-content .single-tab .flight-tab-contents .flight-single-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-flight-btn {
+    background-color: #F57B30;
+    color: #fff;
+    padding: 10px 25px;
+}
+
+.search-flight-btn:hover {
+    background-color: #F57B10;
+
+}
+
+/* hotel tab section css ended */
+
+
+/* here ended the hero section  */
+
+
+
+/* here started the features section  */
+.features .row .feature-item {
+    text-align: center;
+}
+
+.features .row .feature-item i {
+    font-size: 30px;
+    color: var(--secondary-color);
+}
+
+.features .row .feature-item .content .title {
+    font-weight: bold;
+    margin: 15px 0px;
+}
+
+/* here ended the features section  */
+
+
+
+/* here started the lightening section  */
+.lightening-deals .lightening-carousel {
+    position: relative;
+}
+
+.lightening-deals .lightening-carousel .owl-nav {
+    position: absolute;
+    top: -13%;
+    right: 0;
+    font-size: 20px;
+}
+
+.lightening-deals .lightening-carousel .owl-nav .owl-prev {
+    margin-right: 20px;
+}
+
+.lightening-deals .lightening-carousel .owl-nav .owl-prev:hover {
+    background-color: #fff;
+    color: var(--secondary-color);
+}
+
+.lightening-deals .lightening-carousel .owl-nav .owl-next:hover {
+    background-color: #fff;
+    color: var(--secondary-color);
+}
+
+.lightening-deals .lightening-deals-item .img {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.lightening-deals .lightening-deals-item .img img {
+    height: 300px;
+    transition: 1s;
+    width: 100%;
+}
+
+.lightening-deals .lightening-deals-item .img img:hover {
+    transform: scale(1.1);
+}
+
+/* here ended the lightening section  */
+
+
+
+/* here started the popular package  */
+.popular-package .highlighted-package {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.popular-package .highlighted-package::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    z-index: 1;
+    opacity: 0.4;
+}
+
+.popular-package .highlighted-package .highlighted-package-image {
+    width: 100%;
+    height: 50vh;
+    position: absolute;
+    transition: 1s;
+    z-index: -1;
+}
+
+.popular-package .highlighted-package:hover .highlighted-package-image {
+    transform: scale(1.03);
+}
+
+.popular-package .highlighted-package .package-details {
+    position: absolute;
+    color: #fff;
+    bottom: 35px;
+    left: 35px;
+    z-index: 2;
+}
+
+.popular-package .highlighted-package .package-details .quantity {
+    color: #fff;
+}
+
+.popular-package .highlighted-package .package-details .quantity .package {
+    margin-left: 5px;
+}
+
+.popular-package .highlighted-package .package-details .name {
+    font-weight: 700;
+    margin: 8px 0px;
+}
+
+.popular-package .single-package-item {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.popular-package .single-package-item:hover .single-package-image {
+    transform: scale(1.03);
+}
+
+.popular-package .single-package-item .single-package-image {
+    height: 300px;
+    transition: 1s;
+}
+
+/* here ended the popular package  */
+
+
+/* here started the cheapest flight section  */
+.cheapest-flight .flight-item {
+    cursor: pointer;
+    padding: 15px 0px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.cheapest-flight .flight-item .content .title {
+    font-size: 22px;
+}
+
+.cheapest-flight .flight-item:hover .content .title {
+    color: var(--secondary-color);
+
+}
+
+.cheapest-flight .flight-item:hover {
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.25);
+}
+
+.cheapest-flight .flight-item i {
+    color: var(--secondary-color);
+    font-size: 25px;
+}
+
+.cheapest-flight .flight-item .right-arrow {
+    color: var(--secondary-color);
+    font-size: 16px;
+}
+
+/* here ended the cheapest flight section  */
+
+
+/* here started the footer section  */
+footer {
+    background-color: var(--grey-color);
+    padding: 50px 0px;
+}
+
+footer .links .footer-link {
+    color: grey;
+    text-decoration: none;
+    display: block;
+    transition: 0.4s;
+}
+
+footer .links .footer-link:hover {
+    margin-left: 5px;
+}
+
+footer .footer-block {
+    margin-bottom: 20px;
+}
+
+/* here ended the footer section  */
+/*-------------------------|Code Ended|-------------------------------*/

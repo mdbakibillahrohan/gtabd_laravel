@@ -1,0 +1,31 @@
+:root {
+    --primary-color: #FFCD07;
+    --secondary-color: #0B7CC1;
+    --grey-color: #F7F7F7;
+    --primary-font: 'Montserrat', sans-serif;
+}
+
+.tab-active {
+    background-color: var(--primary-color);
+}
+
+.d-none {
+    display: none;
+}
+
+.def-m-p {
+    padding: 30px 0px;
+    margin: 30px 0px;
+}
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+.logo-blue-color {
+    color: #0B7CC1;
+}
+
+.logo-yellow-color {
+    color: #FFCD07;
+}

@@ -1,0 +1,43 @@
+@media screen and (max-width: 1050px) {
+    .hero .content .tabs .tab-window .tab-content .single-tab .header-tabs {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hero .content .tabs .tab-window .tab-content .single-tab .header-tabs {
+        width: 90%;
+    }
+
+    .hero .content .tabs {
+        width: 90%;
+    }
+
+    .hero .content .tabs .tab-window .tab-btn i {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hero .content .tabs .tab-window .tab-content .single-tab .header-tabs {
+        width: 95%;
+    }
+
+    .hero .content .tabs {
+        width: 95%;
+    }
+
+    .hero .content .tabs .tab-window .tab-btn i {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    nav .user-btn {
+        display: none !important;
+    }
+
+    nav .login-btn {
+        display: block !important;
+    }
+}

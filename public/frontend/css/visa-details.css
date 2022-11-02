@@ -1,0 +1,39 @@
+.visa-details {
+    margin-top: 100px
+}
+
+.visa-feature-image {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+}
+
+.visa-feature-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.4;
+
+}
+
+.visa-image {
+    position: absolute;
+    width: 100%;
+    height: 50vh;
+    z-index: -1;
+}
+
+
+
+
+.visa-feature-image .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
