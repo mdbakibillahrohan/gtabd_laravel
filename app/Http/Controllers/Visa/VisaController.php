@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class VisaController extends Controller
 {
-    public function create()
-    {
-        return view('backend.pages.visa_add');
+
+    public function store(Request $request){
+        return $request;
     }
 }

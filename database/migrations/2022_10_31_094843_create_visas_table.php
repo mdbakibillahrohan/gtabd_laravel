@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('visas', function (Blueprint $table) {
             $table->id();
-            $table->string('country_id');
+            $table->foreignId('country_id');
+            $table->string('image');
             $table->text('description');
             $table->timestamps();
         });

@@ -33,6 +33,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if($request->session()->has('routeName')){
+            $route = $request->session()->get('routeName');
+            $request->session()->remove('routeName');
+            return redirect()->route($route);
+        };
         return redirect()->route('dashboard');
     }
 
@@ -50,6 +55,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('login');
     }
 }

@@ -20,6 +20,7 @@
     <!-- Custom styles for this template-->
     <link rel="stylesheet" href="{{ asset('public/backend/css/froala_editor.min.css') }}">
     <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="{{ asset('public/backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
@@ -109,6 +110,23 @@
     <script src="{{ asset('public/backend/js/sb-admin-2.min.js') }}"></script>
     <script src="{{ asset('public/backend/js/froala_editor.min.js') }}"></script>
     <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if (session()->has('notification'))
+            {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: "{{ session('notification')['type'] }}",
+                    title: "{{ session('notification')['msg'] }}",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        @endif
+    </script>
+
     @yield('backend_script')
 </body>
 

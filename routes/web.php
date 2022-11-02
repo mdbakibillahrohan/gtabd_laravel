@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Visa\VisaController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,10 +23,12 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function(){
     Route::prefix('admin')->group(function(){
-        Route::get('/dashboard', function () {
-            return view('backend.pages.admin_home');
-        })->name('dashboard');
-        Route::get('/visa-add', [VisaController::class, 'create'] );
+        Route::view('/dashboard', 'backend.pages.admin_home')->name('dashboard');
+        Route::view('/visa-add', 'backend.pages.visa_add' )->name("visa-add");
+        Route::post('/visa-add', [VisaController::class, 'store'])->name('visa-add');
+        Route::view('country-add', 'backend.pages.country.add_country')->name("country-add");
+        Route::post('country-add', [CountryController::class, 'store'])->name('country-add');
+        Route::get('countries', [CountryController::class, 'countries'])->name("countries");
     });
 
 });
