@@ -18,15 +18,6 @@
 @section('backend_script')
     <script>
         $(document).ready(function() {
-
-            // new FroalaEditor('#editor', {
-            //     language: 'ro',
-            //     heightMin: 300,
-            //     fontSizeSelection: true,
-            //     fon  tSize: ['8', '10', '12', '14', '18', '30', '60', '96'],
-            //     colorsBackground: ['#61BD6D', '#1ABC9C', '#54ACD2', 'REMOVE']
-            // })
-
             CKEDITOR.replace('editor');
 
             $("#country_select").select2({
