@@ -48,10 +48,17 @@
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..." name="email">
+
+                                                @error('email')
+                                                    <span style="color: red">{{$message}}</span>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" name="password" placeholder="Password">
+                                                @error('password')
+                                                    <span style="color: red">{{$message}}</span>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
