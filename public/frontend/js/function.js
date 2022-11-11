@@ -1,26 +1,26 @@
 
-// here are all the function 
+// here are all the function
 
 
-function changeTab(tabName, className, isTitle = false, titleId = "", title = "Welcome to our Website" ) {
+function changeTab(tabName, className, isTitle = false, titleId = "", title = "Welcome to our Website") {
 
-    // This block of code hide all the div with name of single tab 
+    // This block of code hide all the div with name of single tab
     let content = document.getElementsByClassName(className);
     for (let a = 0; a < content.length; a++) {
         content[a].classList.add("d-none")
     }
 
-    // This block of code show the particular view 
+    // This block of code show the particular view
     let tabId = "tab_" + tabName;
     let tab = document.getElementById(tabId);
     tab.classList.remove("d-none");
 
     // change the title
-    if(isTitle==true){
+    if (isTitle == true) {
         let htmlTitle = document.getElementById(titleId);
         htmlTitle.innerText = title;
     }
-    
+
 
 }
 
@@ -33,17 +33,24 @@ function changeTabBtn(btn, className, activeClassName) {
 }
 
 
-function textLimit(className, limit){
+function textLimit(className, limit) {
     let text = document.getElementsByClassName(className);
 
-    for(let n = 0; n<text.length; n++){
+    for (let n = 0; n < text.length; n++) {
         var oldText = text[n].innerText;
-        if(oldText.length>limit){
-            text[n].innerText = oldText.substring(0,limit) + "...."
+        if (oldText.length > limit) {
+            text[n].innerText = oldText.substring(0, limit) + "...."
         }
-        
+
     }
-    
+
 }
+
+function countryOnchangeData(slug, formElementId, route) {
+    let formElement = document.getElementById(formElementId);
+    let path = route + "/" + slug;
+    formElement.setAttribute('action', path);
+}
+
 
 

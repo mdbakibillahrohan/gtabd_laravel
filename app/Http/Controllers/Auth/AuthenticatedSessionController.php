@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if($request->session()->has('routeName')){
+        if ($request->session()->has('routeName')) {
             $route = $request->session()->get('routeName');
             $request->session()->remove('routeName');
             return redirect()->route($route);

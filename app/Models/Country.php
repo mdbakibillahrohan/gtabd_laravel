@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Country extends Model
 {
     use HasFactory;
+    public function visa()
+    {
+        return $this->hasOne(Visa::class);
+    }
 }

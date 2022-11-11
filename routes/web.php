@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Backend\CountryController;
-use App\Http\Controllers\Visa\VisaController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Visa\VisaFrontendController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,20 +17,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.pages.home');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/redirectToVisaSlug', [VisaFrontendController::class, 'redirectToSlug'])->name("redirectToVisaSlug");
+Route::get('/visa/{slug}', [VisaFrontendController::class, 'index'])->name('visa-services');
 
 
 
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
-        Route::view('/dashboard', 'backend.pages.admin_home')->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::controller('App\Http\Controllers\Visa\VisaController')->group(function () {
             Route::prefix('/visa')->group(function () {
                 Route::get('/add',  'create')->name("visa-add");
                 Route::post('/add',  'store')->name('visa-add');
+                Route::get('services', 'index')->name('visa-index');
+                Route::get('/edit/{id}', 'edit')->name('visa-edit-form');
+                Route::post('/update/{id}', 'update')->name('visa-update');
+                Route::get('/delete/{id}', 'destroy')->name('visa-delete');
             });
         });
 
@@ -41,11 +47,13 @@ Route::middleware('auth')->group(function () {
         Route::get('countries', [CountryController::class, 'countries'])->name("countries");
         // Closed the country's routes here
 
-
-
-
     });
 });
 
 
 require __DIR__ . '/auth.php';
+
+
+
+// these routes return the json value
+Route::get('/country_visa', [HomeController::class, 'country_visa']);

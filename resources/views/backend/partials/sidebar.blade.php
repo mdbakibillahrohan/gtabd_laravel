@@ -38,7 +38,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Visa Services</h6>
                 <a class="collapse-item" href="{{ route('visa-add') }}">Add Visa Services</a>
-                <a class="collapse-item" href="cards.html">List of Visa Services</a>
+                <a class="collapse-item" href="{{ route('visa-index') }}">List of Visa Services</a>
             </div>
         </div>
     </li>

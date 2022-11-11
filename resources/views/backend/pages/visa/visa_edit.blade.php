@@ -2,8 +2,8 @@
 
 @section('backend_page_content')
     <div class="container my-5">
-        <h3>Add a Visa Service</h3>
-        <form enctype="multipart/form-data" action="{{ route('visa-add') }}" method="POST">
+        <h3>Edit your visa service</h3>
+        <form enctype="multipart/form-data" action="{{ route('visa-update', $id) }}" method="POST">
             @csrf
             <div class="mb-3">
                 <div class="input-group">
@@ -24,7 +24,8 @@
                 <select name="country_id" id="country_select" class="form-select" aria-label="Default select example">
 
                     @foreach ($Countries as $Country)
-                        <option value="{{ $Country->id }}">{{ $Country->country_name }}</option>
+                        <option {{ $Visa->country_id == $Country->id ? 'selected' : '' }} value="{{ $Country->id }}">
+                            {{ $Country->country_name }}</option>
                     @endforeach
                 </select>
                 @error('country_id')
@@ -33,7 +34,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="slug">Slug</label>
-                <input value="{{ old('slug') }}" type="text" name="slug" class="form-control" id="slug"
+                <input value="{{ $Visa->slug }}" type="text" name="slug" class="form-control" id="slug"
                     aria-describedby="slug">
                 @error('slug')
                     <span class="text-danger">{{ $message }}</span>
@@ -41,16 +42,17 @@
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Descrition</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="editor" rows="3">{{ old('editor') }}</textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="editor" rows="3">{{ $Visa->description }}</textarea>
                 @error('editor')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-primary">Add Visa Service</button>
+            <button type="submit" class="btn btn-primary">Update Visa Service</button>
         </form>
     </div>
 @endsection
+
 
 @section('backend_script')
     <script>
@@ -61,7 +63,6 @@
                 placeholder: "Select Country",
                 width: 300
             });
-
 
             $('#image-choose').on('change', function() {
                 //get the file name

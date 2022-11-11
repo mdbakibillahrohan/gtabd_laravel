@@ -21,27 +21,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     let flight_tab_buttons = document.getElementsByClassName("flight-header-single-tab");
-    
-    for(let e = 0; e<flight_tab_buttons.length; e++){
-        flight_tab_buttons[e].addEventListener("click", ()=>{
-            if(flight_tab_buttons[e].getAttribute('for')=="one way"){
-                changeTabBtn(flight_tab_buttons[e], "flight-header-single-tab","active")
+
+    for (let e = 0; e < flight_tab_buttons.length; e++) {
+        flight_tab_buttons[e].addEventListener("click", () => {
+            if (flight_tab_buttons[e].getAttribute('for') == "one way") {
+                changeTabBtn(flight_tab_buttons[e], "flight-header-single-tab", "active")
                 changeTab("one_way", "flight-single-tab");
             }
-            if(flight_tab_buttons[e].getAttribute('for')=="round trip"){
-                changeTabBtn(flight_tab_buttons[e], "flight-header-single-tab","active")
+            if (flight_tab_buttons[e].getAttribute('for') == "round trip") {
+                changeTabBtn(flight_tab_buttons[e], "flight-header-single-tab", "active")
                 changeTab("round_trip", "flight-single-tab");
             }
-            if(flight_tab_buttons[e].getAttribute('for')=="multi city"){
+            if (flight_tab_buttons[e].getAttribute('for') == "multi city") {
                 changeTabBtn(flight_tab_buttons[e], "flight-header-single-tab", "active")
                 changeTab("multi_city", "flight-single-tab");
             }
-            
+
         })
     }
 
     textLimit("search-limit-details", 25);
-    
-    
+    let countrySelectForVisa = document.getElementById("country_select_for_visa");
+
+    // countrySelectForVisa.addEventListener("change", function (e) {
+    //     countryOnchangeData(e.returnValue, 'visa-search-form');
+    // })
+
+
+
+
 });
 

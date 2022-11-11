@@ -13,9 +13,6 @@
     --grey-color: #F7F7F7;
     /* --primary-font: 'Montserrat', sans-serif; */
     --primary-font: 'Roboto', sans-serif;
-
-
-
 }
 
 
@@ -101,7 +98,7 @@ nav .navbar-brand img {
     background-repeat: no-repeat;
     position: relative;
     background-color: var(--grey-color);
-    height: 100vh;
+    height: 70vh;
 }
 
 .hero .bg-img img {
@@ -488,6 +485,7 @@ footer .links .footer-link {
 
 footer .links .footer-link:hover {
     margin-left: 5px;
+    color: var(--secondary-color);
 }
 
 footer .footer-block {

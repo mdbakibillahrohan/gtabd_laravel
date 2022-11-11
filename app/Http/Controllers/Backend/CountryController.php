@@ -25,14 +25,14 @@ class CountryController extends Controller
                     "type" => "success",
                     "msg" => "Successfully add Country"
                 ];
-                $request->session()->flash('notification', $notification);
+                session()->flash('notification', $notification);
                 return redirect()->back();
             }
             $notification = [
                 "type" => "error",
                 "msg" => "Error Occurred"
             ];
-            $request->session()->flash('notification', $notification);
+            session()->flash('notification', $notification);
             return redirect()->back();
         }
     }
@@ -55,14 +55,14 @@ class CountryController extends Controller
                     "type" => "success",
                     "msg" => "Successfully update Country"
                 ];
-                $request->session()->flash('notification', $notification);
+                session()->flash('notification', $notification);
                 return redirect()->back();
             }
             $notification = [
                 "type" => "error",
                 "msg" => "Error Occurred"
             ];
-            $request->session()->flash('notification', $notification);
+            session()->flash('notification', $notification);
             return redirect()->back();
         }
     }

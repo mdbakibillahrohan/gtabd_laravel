@@ -1,34 +1,30 @@
 @extends('backend.layouts.backend_layout')
 
 @section('backend_page_content')
+    <div>
 
-
-
-
-
-<div>
-
-    {{-- delete modal  --}}
-  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        {{-- delete modal  --}}
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <span id="deleteMessage"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a id="deleteAnchor" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <span id="deleteMessage"></span>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <a id="deleteAnchor" class="btn btn-danger">Delete</a>
-        </div>
-      </div>
-    </div>
-  </div>
-    {{-- delete modal closed --}}
+        {{-- delete modal closed --}}
 
         <!-- Edit modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -67,7 +63,7 @@
             </div>
         </div>
         <!-- Edit modal closed !-->
-</div>
+    </div>
 
 
     <div class="container">
@@ -93,9 +89,13 @@
                         <td>{{ $Country->country_name }}</td>
                         <td>{{ $Country->country_description }}</td>
                         <td>
-                            <button onclick="bindValueWithEditForm('{{$Country->id}}', '{{ $Country->country_name }}', '{{ $Country->country_description }}')" data-toggle="modal" data-target="#exampleModal"
-                                class="btn btn-sm btn-success">Edit</button>
-                            <button onclick="deleteDataBind('{{$Country->id}}', '{{ $Country->country_name }}')" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-sm btn-danger">Delete</button>
+                            <button
+                                onclick="bindValueWithEditForm('{{ $Country->id }}', '{{ $Country->country_name }}', '{{ $Country->country_description }}')"
+                                data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-success">Edit</button>
+                            <button
+                                onclick="deleteDataBind('{{ $Country->id }}', '{{ $Country->country_name }}', `{{ url('admin/country-delete') }}`,'deleteMessage', 'deleteAnchor')"
+                                data-toggle="modal" data-target="#staticBackdrop"
+                                class="btn btn-sm btn-danger">Delete</button>
                         </td>
                     </tr>
                     @php
@@ -115,22 +115,13 @@
         let countryNameElement = document.getElementById("countryName");
         let descriptionElement = document.getElementById("description");
         let formElement = document.getElementById("updateForm");
-        let deleteMessageElement = document.getElementById("deleteMessage");
-        let deletAnchor = document.getElementById("deleteAnchor");
 
-        function bindValueWithEditForm(id, name, description){
+
+        function bindValueWithEditForm(id, name, description) {
             countryNameElement.value = name;
             descriptionElement.value = description;
-            action = `{{url('admin/country-update')}}/${id}`;
+            action = `{{ url('admin/country-update') }}/${id}`;
             formElement.setAttribute('action', action);
         }
-
-        function deleteDataBind(id, name){
-            deleteMessageElement.innerHTML = `Do you really want to delete <b>${name}</b>`;
-            url = `{{url('admin/country-delete')}}/${id}`;
-            deletAnchor.setAttribute("href", url);
-        }
-
-
     </script>
 @endsection
