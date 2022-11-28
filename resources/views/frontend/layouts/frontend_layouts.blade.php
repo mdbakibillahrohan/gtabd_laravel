@@ -280,13 +280,14 @@
         stg.DestinationName = "";
         stg.OverideConf = true;
         new AgdSherpa(stg).initialize();
+
+        setTimeout(() => {
+            let agoda = document.getElementById("adgshp338609613");
+            agoda.style.height = "430px";
+
+        }, 1000);
     </script>
 
-    <style>
-        #adgshp338609613 {
-            height: 430px !importan;
-        }
-    </style>
 </body>
 
 </html>
