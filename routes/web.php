@@ -18,6 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// artisan command run
+Route::get('/runARtisanCommand', function () {
+    Artisan::call("cache:clear");
+    Artisan::call("view:clear");
+    Artisan::call("route:clear");
+    Artisan::call("migrate:fresh");
+    Artisan::call("db:seed");
+    return "clear";
+});
+// artisan command run
+
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/redirectToVisaSlug', [VisaFrontendController::class, 'redirectToSlug'])->name("redirectToVisaSlug");
 Route::get('/visa/{slug}', [VisaFrontendController::class, 'index'])->name('visa-services');

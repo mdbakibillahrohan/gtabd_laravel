@@ -32,7 +32,7 @@
     <div class="container">
 
 
-        <h2 class="my-3">List of Visa Services</h2>
+        <h2 class="my-3">List of Packages</h2>
         <table class="table table-striped">
             <thead>
                 <tr>

@@ -447,17 +447,23 @@
                         <div class="col">
                             <a href="#">
                                 <div class="highlighted-package">
+                                    @if($FeaturedPackage!=null)
                                     <img class="highlighted-package-image"
                                         src="{{ asset('storage/app/' . $FeaturedPackage->package_image) }}"
                                         alt="" />
+                                        @else
+                                        <img class="highlighted-package-image"
+                                        src=""
+                                        alt="" />
+                                        @endif
                                     <div class="package-details">
                                         <div class="d-flex align-items-center quantity">
                                             <i class="fa-solid fa-truck-fast"></i>
                                             <div class="package">43 Packages</div>
                                         </div>
-                                        <h3 class="name">{{ $FeaturedPackage->package_title }}</h3>
+                                        <h3 class="name">{{ $FeaturedPackage==null?"":$FeaturedPackage->package_title }}</h3>
                                         <span class="finance">Starts From BDT
-                                            {{ $FeaturedPackage->package_price_single }}</span>
+                                            {{ $FeaturedPackage==null?"":$FeaturedPackage->package_price_single }}</span>
                                     </div>
                                 </div>
                             </a>

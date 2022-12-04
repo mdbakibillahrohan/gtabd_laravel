@@ -3,29 +3,40 @@
     <div class="container-fluid my-5">
         <div class="row">
             <div class="col-md-3 ">
-                <div class="border text-center py-3 bg-success h-12 rounded">
-                    <h3 class="text-light">{{ $VisaCount }}</h3>
-                    <span class="fw-bold text-light">Added Visa Services</span>
-                </div>
+                <a href="{{ route('visa-index') }}">
+                    <div class="border text-center py-3 bg-success h-12 rounded">
+                        <h3 class="text-light">{{ $VisaCount }}</h3>
+                        <span class="fw-bold text-light">Added Visa Services</span>
+                    </div>
+                </a>
             </div>
             <div class="col-md-3 ">
-                <div class="border text-center py-3 bg-success h-12 rounded">
-                    <h3 class="text-light">{{ $CountryCount }}</h3>
-                    <span class="fw-bold text-light">Added Country</span>
-                </div>
+                <a href="{{ route('countries') }}">
+                    <div class="border text-center py-3 bg-success h-12 rounded">
+                        <h3 class="text-light">{{ $CountryCount }}</h3>
+                        <span class="fw-bold text-light">Added Country</span>
+                    </div>
+                </a>
             </div>
             <div class="col-md-3 ">
-                <div class="border text-center py-3 bg-success h-12 rounded">
-                    <h3 class="text-light">{{ $VisaCount }}</h3>
-                    <span class="fw-bold text-light">Visa Services</span>
-                </div>
+                <a href="{{ route('packages.list') }}">
+                    <div class="border text-center py-3 bg-success h-12 rounded">
+                        <h3 class="text-light">{{ $PackagesCount }}</h3>
+                        <span class="fw-bold text-light">Added Packages</span>
+                    </div>
+                </a>
             </div>
-            <div class="col-md-3 ">
-                <div class="border text-center py-3 bg-success h-12 rounded">
-                    <h3 class="text-light">{{ $VisaCount }}</h3>
-                    <span class="fw-bold text-light">Visa Services</span>
-                </div>
-            </div>
+
         </div>
     </div>
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
 @endsection
