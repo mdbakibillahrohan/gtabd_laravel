@@ -128,7 +128,7 @@
                             <a class="nav-link" href="#">Hotel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Holiday</a>
+                            <a class="nav-link" href="{{ route('packages-list') }}">Tour Packages</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -265,28 +265,7 @@
   </script> -->
 
 
-    <script type="text/javascript" src="//cdn0.agoda.net/images/sherpa/js/sherpa_init1_08.min.js"></script>
-    <script type="text/javascript">
-        var stg = new Object();
-        stg.crt = "86666600997";
-        stg.version = "1.04";
-        stg.id = stg.name = "adgshp338609613";
-        stg.width = "320px";
-        stg.height = "430px";
-        stg.ReferenceKey = "oGln8zMa2axkTYeWLS2xBQ==";
-        stg.Layout = "SquareCalendar";
-        stg.Language = "en-us";
-        stg.Cid = "1780729";
-        stg.DestinationName = "";
-        stg.OverideConf = true;
-        new AgdSherpa(stg).initialize();
 
-        setTimeout(() => {
-            let agoda = document.getElementById("adgshp338609613");
-            agoda.style.height = "430px";
-
-        }, 1000);
-    </script>
 
 </body>
 

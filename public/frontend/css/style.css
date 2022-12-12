@@ -50,27 +50,27 @@ h6 {
 
 /* here started the navbar section / */
 
-nav {
+.navbar {
     box-shadow: 0px 7px 9px 1px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 7px 9px 1px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 7px 9px 1px rgba(0, 0, 0, 0.5);
 }
 
-nav .user-btn {
+.navbar .user-btn {
     width: 10%;
 }
 
-nav .user-btn i {
+.navbar .user-btn i {
     font-size: 30px;
     color: var(--secondary-color);
     cursor: pointer;
 }
 
-nav .navbar-brand {
+.navbar .navbar-brand {
     width: 10%;
 }
 
-nav .navbar-brand img {
+.navbar .navbar-brand img {
     width: 100%;
 }
 

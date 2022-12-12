@@ -445,25 +445,26 @@
                     <!-- this is highlighted package  -->
                     <div class="row">
                         <div class="col">
-                            <a href="#">
+                            <a
+                                href="{{ $FeaturedPackage == null ? '#' : route('package-details', $FeaturedPackage->package_slug) }}">
                                 <div class="highlighted-package">
-                                    @if($FeaturedPackage!=null)
-                                    <img class="highlighted-package-image"
-                                        src="{{ asset('storage/app/' . $FeaturedPackage->package_image) }}"
-                                        alt="" />
-                                        @else
+                                    @if ($FeaturedPackage != null)
                                         <img class="highlighted-package-image"
-                                        src=""
-                                        alt="" />
-                                        @endif
+                                            src="{{ asset('storage/app/' . $FeaturedPackage->package_image) }}"
+                                            alt="" />
+                                    @else
+                                        <img class="highlighted-package-image" src="" alt="" />
+                                    @endif
                                     <div class="package-details">
                                         <div class="d-flex align-items-center quantity">
                                             <i class="fa-solid fa-truck-fast"></i>
                                             <div class="package">43 Packages</div>
                                         </div>
-                                        <h3 class="name">{{ $FeaturedPackage==null?"":$FeaturedPackage->package_title }}</h3>
+                                        <h3 class="name">
+                                            {{ $FeaturedPackage == null ? '' : $FeaturedPackage->package_title }}
+                                        </h3>
                                         <span class="finance">Starts From BDT
-                                            {{ $FeaturedPackage==null?"":$FeaturedPackage->package_price_single }}</span>
+                                            {{ $FeaturedPackage == null ? '' : $FeaturedPackage->package_price_single }}</span>
                                     </div>
                                 </div>
                             </a>
@@ -474,7 +475,7 @@
                     <div class="row">
                         @foreach ($Packages as $Package)
                             <div class="col-md-3 my-3">
-                                <a href="#">
+                                <a href="{{ route('package-details', $Package->package_slug) }}">
                                     <div class="single-package-item">
                                         <img class="single-package-image img-fluid rounded-3"
                                             src="{{ asset('storage/app/' . $Package->package_image) }}" alt="" />
@@ -653,5 +654,28 @@
 
         }
         integrateDataWithSelect();
+    </script>
+
+    <script type="text/javascript" src="//cdn0.agoda.net/images/sherpa/js/sherpa_init1_08.min.js"></script>
+    <script type="text/javascript">
+        var stg = new Object();
+        stg.crt = "86666600997";
+        stg.version = "1.04";
+        stg.id = stg.name = "adgshp338609613";
+        stg.width = "320px";
+        stg.height = "430px";
+        stg.ReferenceKey = "oGln8zMa2axkTYeWLS2xBQ==";
+        stg.Layout = "SquareCalendar";
+        stg.Language = "en-us";
+        stg.Cid = "1780729";
+        stg.DestinationName = "";
+        stg.OverideConf = true;
+        new AgdSherpa(stg).initialize();
+
+        setTimeout(() => {
+            let agoda = document.getElementById("adgshp338609613");
+            agoda.style.height = "430px";
+
+        }, 1000);
     </script>
 @endsection

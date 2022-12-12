@@ -19,21 +19,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 // artisan command run
-Route::get('/runARtisanCommand', function () {
+Route::get('/reset', function () {
     Artisan::call("cache:clear");
     Artisan::call("view:clear");
     Artisan::call("route:clear");
     Artisan::call("migrate:fresh");
     Artisan::call("db:seed");
-    return "clear";
+    return "Restored Success";
 });
 // artisan command run
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/redirectToVisaSlug', [VisaFrontendController::class, 'redirectToSlug'])->name("redirectToVisaSlug");
 Route::get('/visa/{slug}', [VisaFrontendController::class, 'index'])->name('visa-services');
+Route::get('/tour-packages', [PackagesFrontendController::class, 'index'])->name('packages-list');
 Route::get('package/{slug}', [PackagesFrontendController::class, 'show'])->name('package-details');
-
 
 
 Route::middleware('auth')->group(function () {
@@ -76,6 +76,16 @@ Route::middleware('auth')->group(function () {
             });
         });
         // closed packages routes here
+
+
+
+        // here started the Profile routes
+        Route::controller('App\Http\Controllers\Backend\ProfileController')->group(function () {
+            Route::prefix('profile')->group(function () {
+                Route::get('/', 'index')->name('admin.profile');
+            });
+        });
+        // here ended the Profile routes
 
     });
 });

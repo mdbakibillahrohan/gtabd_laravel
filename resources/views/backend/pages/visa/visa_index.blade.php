@@ -37,35 +37,42 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Country Nvame</th>
+                    <th scope="col">Country Name</th>
                     <th scope="col">Slug</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @php
-                    $sl = 1;
-                @endphp
-                @foreach ($AllVisa as $Visa)
-                    <tr>
-                        <th scope="row">{{ $sl }}</th>
-                        <td>{{ $Visa->country->country_name }}</td>
-                        <td>{{ $Visa->slug }}</td>
-                        <td>
-                            <a href="{{ route('visa-edit-form', $Visa->id) }}" class="btn btn-sm btn-success">Edit</a>
-                            <button
-                                onclick="deleteDataBind('{{ $Visa->id }}', '{{ $Visa->country->country_name }}', `{{ url('admin/visa/delete') }}`,'deleteMessage','deleteAnchor')"
-                                data-toggle="modal" data-target="#staticBackdrop"
-                                class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                    </tr>
+                @if (sizeof($AllVisa) > 0)
                     @php
-                        $sl++;
+                        $sl = 1;
                     @endphp
-                @endforeach
+                    @foreach ($AllVisa as $Visa)
+                        <tr>
+                            <th scope="row">{{ $sl }}</th>
+                            <td>{{ $Visa->country->country_name }}</td>
+                            <td>{{ $Visa->slug }}</td>
+                            <td>
+                                <a href="{{ route('visa-edit-form', $Visa->id) }}" class="btn btn-sm btn-success">Edit</a>
+                                <button
+                                    onclick="deleteDataBind('{{ $Visa->id }}', '{{ $Visa->country->country_name }}', `{{ url('admin/visa/delete') }}`,'deleteMessage','deleteAnchor')"
+                                    data-toggle="modal" data-target="#staticBackdrop"
+                                    class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        @php
+                            $sl++;
+                        @endphp
+                    @endforeach
+                @endif
+
 
 
             </tbody>
         </table>
+
+        @if (sizeof($AllVisa) == 0)
+            <h3 class="text-center">No Data</h3>
+        @endif
     </div>
 @endsection
