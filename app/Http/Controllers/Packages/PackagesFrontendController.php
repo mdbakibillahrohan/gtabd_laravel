@@ -18,10 +18,11 @@ class PackagesFrontendController extends Controller
         $search = $request['search_value'] ?? "";
         if ($search != "") {
             $Packages = Package::where('package_city_name', 'LIKE', "%$search%")->orWhere('package_title', 'LIKE', "%$search%")->paginate(12);
-            return view('frontend.pages.tour_package', ['Packages' => $Packages, 'search_value' => $search]);
+            return view('frontend.pages.tour_package',);
+        } else {
+            $Packages = Package::latest()->paginate(12);
         }
-        $Packages = Package::latest()->paginate(12);
-        return view('frontend.pages.tour_package', ['Packages' => $Packages]);
+        return view('frontend.pages.tour_package', ['Packages' => $Packages, 'search_value' => $search]);
     }
     public function show($slug)
     {
