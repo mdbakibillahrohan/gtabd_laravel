@@ -41,7 +41,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="countryName">Country Name <small class="text-danger">(required)</small></label>
-                                <input name="country_name" type="text" class="form-control" id="countryName"
+                                <input name="name" type="text" class="form-control" id="countryName"
                                     placeholder="example: Singapore">
                                 @error('contry_name')
                                     <span>{{ $message }}</span>
@@ -50,7 +50,7 @@
 
                             <div class="form-group">
                                 <label for="description">Description <small>(Optional)</small></label>
-                                <textarea name="country_description" class="form-control" id="description" rows="4"></textarea>
+                                <textarea name="code" class="form-control" id="description" rows="4"></textarea>
 
                             </div>
                         </div>
@@ -69,13 +69,19 @@
     <div class="container">
 
 
-        <h2 class="my-3">List of Contries</h2>
+        <h2 class="my-3">List of Countries</h2>
+        <form method="GET">
+            <div class="form-group">
+                <input value="{{ $search_value }}" type="text" name="search_value" class="form-control"
+                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search...">
+            </div>
+        </form>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th style="width: 15%" scope="col">Country Name</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Country Code</th>
                     <th scope="col" style="width: 20%">Action</th>
                 </tr>
             </thead>
@@ -86,14 +92,14 @@
                 @foreach ($Countries as $Country)
                     <tr>
                         <th scope="row">{{ $sl }}</th>
-                        <td>{{ $Country->country_name }}</td>
-                        <td>{{ $Country->country_description }}</td>
+                        <td>{{ $Country->name }}</td>
+                        <td>{{ $Country->code }}</td>
                         <td>
                             <button
-                                onclick="bindValueWithEditForm('{{ $Country->id }}', '{{ $Country->country_name }}', '{{ $Country->country_description }}')"
+                                onclick="bindValueWithEditForm('{{ $Country->id }}', '{{ $Country->name }}', '{{ $Country->code }}')"
                                 data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-success">Edit</button>
                             <button
-                                onclick="deleteDataBind('{{ $Country->id }}', '{{ $Country->country_name }}', `{{ url('admin/country-delete') }}`,'deleteMessage', 'deleteAnchor')"
+                                onclick="deleteDataBind('{{ $Country->id }}', '{{ $Country->name }}', `{{ url('admin/country-delete') }}`,'deleteMessage', 'deleteAnchor')"
                                 data-toggle="modal" data-target="#staticBackdrop"
                                 class="btn btn-sm btn-danger">Delete</button>
                         </td>
@@ -103,9 +109,9 @@
                     @endphp
                 @endforeach
 
-
             </tbody>
         </table>
+        {{ $Countries->links() }}
     </div>
 
 

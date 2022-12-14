@@ -45,7 +45,7 @@
                 <label for="exampleFormControlTextarea1" class="form-label">Select Country</label>
                 <select name="country_id" id="country_select" class="form-select" aria-label="Default select example">
                     @foreach ($Countries as $Country)
-                        <option value="{{ $Country->id }}">{{ $Country->country_name }}</option>
+                        <option value="{{ $Country->id }}">{{ $Country->name }}</option>
                     @endforeach
 
                 </select>

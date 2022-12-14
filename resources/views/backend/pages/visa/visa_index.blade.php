@@ -2,7 +2,6 @@
 
 @section('backend_page_content')
     <div>
-
         {{-- delete modal  --}}
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -50,12 +49,12 @@
                     @foreach ($AllVisa as $Visa)
                         <tr>
                             <th scope="row">{{ $sl }}</th>
-                            <td>{{ $Visa->country->country_name }}</td>
+                            <td>{{ $Visa->country->name }}</td>
                             <td>{{ $Visa->slug }}</td>
                             <td>
                                 <a href="{{ route('visa-edit-form', $Visa->id) }}" class="btn btn-sm btn-success">Edit</a>
                                 <button
-                                    onclick="deleteDataBind('{{ $Visa->id }}', '{{ $Visa->country->country_name }}', `{{ url('admin/visa/delete') }}`,'deleteMessage','deleteAnchor')"
+                                    onclick="deleteDataBind('{{ $Visa->id }}', '{{ $Visa->country->name }}', `{{ url('admin/visa/delete') }}`,'deleteMessage','deleteAnchor')"
                                     data-toggle="modal" data-target="#staticBackdrop"
                                     class="btn btn-sm btn-danger">Delete</button>
                             </td>
@@ -70,6 +69,7 @@
 
             </tbody>
         </table>
+        {{ $AllVisa->links() }}
 
         @if (sizeof($AllVisa) == 0)
             <h3 class="text-center">No Data</h3>

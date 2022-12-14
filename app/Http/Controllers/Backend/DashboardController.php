@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
+use App\Models\Hotel;
 use App\Models\Package;
 use App\Models\Visa;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class DashboardController extends Controller
         $VisaCount = Visa::all()->count();
         $CountryCount = Country::all()->count();
         $PackagesCount = Package::all()->count();
-        return view('backend.pages.admin_home', ['VisaCount' => $VisaCount, 'CountryCount' => $CountryCount, 'PackagesCount' => $PackagesCount]);
+        $HotelsCount = Hotel::all()->count();
+        return view('backend.pages.admin_home', ['VisaCount' => $VisaCount, 'CountryCount' => $CountryCount, 'PackagesCount' => $PackagesCount, 'HotelsCount' => $HotelsCount]);
     }
 
     public function homeController()

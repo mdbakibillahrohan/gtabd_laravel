@@ -13,7 +13,8 @@ class VisaController extends Controller
 
     public function index()
     {
-        $AllVisa = Visa::all();
+
+        $AllVisa = Visa::paginate(10);
         return view('backend.pages.visa.visa_index', ['AllVisa' => $AllVisa]);
     }
 

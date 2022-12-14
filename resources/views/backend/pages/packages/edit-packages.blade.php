@@ -3,6 +3,9 @@
 @section('backend_page_content')
     <div class="container my-5">
         <h3>Edit Package</h3>
+        <div class="text-center">
+            <img class="img-fluid feature-image" src="{{ asset('storage/app/' . $Package->package_image) }}" alt="">
+        </div>
         <form enctype="multipart/form-data" action="{{ route('packages.update', $Package->id) }}" method="POST">
             @csrf
             <div class="mb-3">
@@ -46,7 +49,7 @@
                 <select name="country_id" id="country_select" class="form-select" aria-label="Default select example">
                     @foreach ($Countries as $Country)
                         <option {{ $Package->country_id == $Country->id ? 'selected' : '' }} value="{{ $Country->id }}">
-                            {{ $Country->country_name }}</option>
+                            {{ $Country->name }}</option>
                     @endforeach
 
                 </select>
@@ -395,6 +398,10 @@
         .collapse-link:hover {
             text-decoration: none;
             color: #000000;
+        }
+
+        .feature-image {
+            width: 30%;
         }
     </style>
 @endsection

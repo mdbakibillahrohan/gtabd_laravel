@@ -125,7 +125,7 @@
                             <a class="nav-link" href="#">Flight</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Hotel</a>
+                            <a class="nav-link" href="{{ route('hotel-list') }}">Hotel</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('packages-list') }}">Tour Packages</a>

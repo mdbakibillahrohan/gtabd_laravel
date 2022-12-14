@@ -15,6 +15,7 @@ class HomeElementSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('homeelements')->delete();
         DB::table('homeelements')->insert([
             [
                 "identity" => "hero-section",
@@ -22,6 +23,10 @@ class HomeElementSeeder extends Seeder
             ],
             [
                 "identity" => "icon-section",
+                "is_show" => 1
+            ],
+            [
+                "identity" => "top-hotel",
                 "is_show" => 1
             ],
             [

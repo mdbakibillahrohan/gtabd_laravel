@@ -1,5 +1,4 @@
 @extends('backend.layouts.backend_layout')
-
 @section('backend_page_content')
     <div>
 
@@ -32,7 +31,7 @@
     <div class="container">
 
 
-        <h2 class="my-3">List of Packages</h2>
+        <h2 class="my-3">List of Hotel</h2>
         <form method="GET">
             <div class="form-group">
                 <input value="{{ $search_value }}" type="text" name="search_value" class="form-control"
@@ -43,8 +42,8 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Package Title</th>
-                    <th scope="col">Slug</th>
+                    <th scope="col">Hotel Name</th>
+                    <th scope="col">Hotel Slug</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -52,17 +51,16 @@
                 @php
                     $sl = 1;
                 @endphp
-                @foreach ($Packages as $Package)
+                @foreach ($Hotels as $Hotel)
                     <tr>
                         <th scope="row">{{ $sl }}</th>
-                        <td>{{ $Package->package_title }}</td>
-                        <td>{{ $Package->package_slug }}</td>
+                        <td>{{ $Hotel->hotel_name }}</td>
+                        <td>{{ $Hotel->hotel_slug }}</td>
                         <td>
-                            <a href="{{ route('packages.duplicate', $Package->id) }}"
-                                class="btn btn-sm btn-success">Duplicate</a>
-                            <a href="{{ route('packages.edit', $Package->id) }}" class="btn btn-sm btn-success">Edit</a>
+
+                            <a href="{{ route('hotels.edit', $Hotel->id) }}" class="btn btn-sm btn-success">Edit</a>
                             <button
-                                onclick="deleteDataBind('{{ $Package->id }}', '{{ $Package->package_title }}', `{{ url('admin/packages/delete') }}`,'deleteMessage','deleteAnchor')"
+                                onclick="deleteDataBind('{{ $Hotel->id }}', `{{ $Hotel->hotel_name }}`, `{{ url('admin/hotel/delete') }}`,'deleteMessage','deleteAnchor')"
                                 data-toggle="modal" data-target="#staticBackdrop"
                                 class="btn btn-sm btn-danger">Delete</button>
                         </td>
@@ -75,6 +73,5 @@
 
             </tbody>
         </table>
-        {{ $Packages->links() }}
     </div>
 @endsection

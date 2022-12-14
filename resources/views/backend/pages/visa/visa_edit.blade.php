@@ -25,7 +25,7 @@
 
                     @foreach ($Countries as $Country)
                         <option {{ $Visa->country_id == $Country->id ? 'selected' : '' }} value="{{ $Country->id }}">
-                            {{ $Country->country_name }}</option>
+                            {{ $Country->name }}</option>
                     @endforeach
                 </select>
                 @error('country_id')

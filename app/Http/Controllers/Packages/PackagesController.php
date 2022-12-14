@@ -14,10 +14,15 @@ class PackagesController extends Controller
 {
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $Packages = Package::all();
-        return view('backend.pages.packages.list-packages', ['Packages' => $Packages]);
+        $Search = $request->search_value ?? "";
+        if ($Search != "") {
+            $Packages = Package::where('package_title', 'LIKE', "%$Search%")->paginate(20);
+        } else {
+            $Packages = Package::paginate(20);
+        }
+        return view('backend.pages.packages.list-packages', ['Packages' => $Packages, 'search_value' => $Search]);
     }
 
 
@@ -44,10 +49,10 @@ class PackagesController extends Controller
         );
         if ($validate) {
             if ($request->featured == "yes") {
-                $Package_feture = Package::where('is_featured', 1)->first();
-                if ($Package_feture != null) {
-                    $Package_feture->is_featured = 0;
-                    $Package_feture->update();
+                $Package_feature = Package::where('is_featured', 1)->first();
+                if ($Package_feature != null) {
+                    $Package_feature->is_featured = 0;
+                    $Package_feature->update();
                 }
             }
             $Package = new Package();
@@ -137,10 +142,10 @@ class PackagesController extends Controller
 
         if ($validate) {
             if ($request->featured == "yes") {
-                $Package_feture = Package::where('is_featured', 1)->first();
-                if ($Package_feture != null) {
-                    $Package_feture->is_featured = 0;
-                    $Package_feture->update();
+                $Package_feature = Package::where('is_featured', 1)->first();
+                if ($Package_feature != null) {
+                    $Package_feature->is_featured = 0;
+                    $Package_feature->update();
                 }
             }
 
@@ -150,6 +155,7 @@ class PackagesController extends Controller
                 if ($Package->is_duplicated == 1) {
                     $file = Storage::putFile('uploaded', $request->file('feature_image'));
                     if ($file) {
+                        $Package->is_duplicated = 0;
                         return $helpersFunctions->packageUpdateCommonCode($Package, $request, $file);
                     }
                 } else {

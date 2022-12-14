@@ -11,13 +11,13 @@ class CountryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'country_name' => 'required',
+            'name' => 'required',
         ]);
 
         if ($validated) {
             $Country = new Country();
-            $Country->country_name = $request->country_name;
-            $Country->country_description = $request->country_description;
+            $Country->name = $request->name;
+            $Country->code = $request->country_code;
             $save = $Country->save();
 
             if ($save) {
@@ -41,13 +41,13 @@ class CountryController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'country_name' => 'required',
+            'name' => 'required',
         ]);
 
         if ($validated) {
             $Country = Country::find($id);
-            $Country->country_name = $request->country_name;
-            $Country->country_description = $request->country_description;
+            $Country->name = $request->name;
+            $Country->code = $request->country_code;
             $save = $Country->update();
 
             if ($save) {
@@ -88,9 +88,14 @@ class CountryController extends Controller
     }
 
 
-    public function countries()
+    public function countries(Request $request)
     {
-        $Countries = Country::all();
-        return view('backend.pages.country.countries', ["Countries" => $Countries]);
+        $Search = $request->search_value ?? "";
+        if ($Search != "") {
+            $Countries = Country::where('name', 'LIKE', "%$Search%")->orWhere('code', 'LIKE', "%$Search%")->paginate(20);
+        } else {
+            $Countries = Country::paginate(20);
+        }
+        return view('backend.pages.country.countries', ["Countries" => $Countries, 'search_value' => $Search]);
     }
 }

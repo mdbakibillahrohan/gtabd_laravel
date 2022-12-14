@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Hotel\HotelFrontendController;
 use App\Http\Controllers\Packages\PackagesFrontendController;
 use App\Http\Controllers\Visa\VisaFrontendController;
 use Illuminate\Support\Facades\Route;
@@ -29,12 +30,14 @@ Route::get('/reset', function () {
 });
 // artisan command run
 
+
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/redirectToVisaSlug', [VisaFrontendController::class, 'redirectToSlug'])->name("redirectToVisaSlug");
 Route::get('/visa/{slug}', [VisaFrontendController::class, 'index'])->name('visa-services');
 Route::get('/tour-packages', [PackagesFrontendController::class, 'index'])->name('packages-list');
 Route::get('package/{slug}', [PackagesFrontendController::class, 'show'])->name('package-details');
-
+Route::get('hotel/{slug}', [HotelFrontendController::class, 'show'])->name('hotel-details');
+Route::get('/hotels', [HotelFrontendController::class, 'index'])->name('hotel-list');
 
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
@@ -78,11 +81,26 @@ Route::middleware('auth')->group(function () {
         // closed packages routes here
 
 
+        // here started the hotels routes
+        Route::controller('App\Http\Controllers\Hotel\HotelController')->group(function () {
+            Route::prefix('hotel')->group(function () {
+                Route::get('/', 'index')->name('hotels.list');
+                Route::get('/add', 'create')->name('hotels.add');
+                Route::post('/store', 'store')->name('hotels.store');
+                Route::get('/edit/{id}', 'edit')->name('hotels.edit');
+                Route::post('/update/{id}', 'update')->name('hotels.update');
+                Route::get('/delete/{id}', 'destroy')->name('hotels.destroy');
+            });
+        });
+        // here ended the hotels routes
+
+
 
         // here started the Profile routes
         Route::controller('App\Http\Controllers\Backend\ProfileController')->group(function () {
             Route::prefix('profile')->group(function () {
                 Route::get('/', 'index')->name('admin.profile');
+                Route::post('/update/{id}', 'update')->name('admin.update');
             });
         });
         // here ended the Profile routes

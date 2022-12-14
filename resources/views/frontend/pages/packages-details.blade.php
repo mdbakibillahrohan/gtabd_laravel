@@ -14,7 +14,7 @@
                     <div class="location my-3">
                         <i class="fa-solid fa-location-dot"></i>
                         <span class="ms-2">{{ $Package->package_city_name }},
-                            {{ $Package->country->country_name }}</span>
+                            {{ $Package->country->name }}</span>
                     </div>
                     <div class="duration my-3">
                         <i class="fa-solid fa-calendar"></i>
@@ -196,7 +196,7 @@
                                 </div>
                             </div>
                             <div class="valid_till">
-                                <div class="validity-header-text">Valid From</div>
+                                <div class="validity-header-text">Valid Till</div>
                                 <div class="validity-date">
                                     @php
                                         $ValidTill = explode('-', $Package->package_valid_till);
@@ -216,15 +216,15 @@
                         <div class="row mt-3">
                             <div class="col-md-6 mb-2">
                                 <small class="d-block">Price Per Person Single:</small>
-                                <span class="fw-bold">BDT 14000</span>
+                                <span class="fw-bold">BDT {{ $Package->package_price_single }} </span>
                             </div>
                             <div class="col-md-6 mb-2">
                                 <small class="d-block">Price Per Person Double:</small>
-                                <span class="fw-bold">BDT 14000</span>
+                                <span class="fw-bold">BDT {{ $Package->package_price_double }}</span>
                             </div>
                             <div class="col-md-6 mb-2">
                                 <small class="d-block">Price Per Person Tripple:</small>
-                                <span class="fw-bold">BDT 14000</span>
+                                <span class="fw-bold">BDT {{ $Package->package_price_tripple }}</span>
                             </div>
                         </div>
 

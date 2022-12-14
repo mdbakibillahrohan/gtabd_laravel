@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('hotels', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('code')->unique();
+            $table->string('hotel_name');
+            $table->foreignId('country_id');
+            $table->string('hotel_city_name');
+            $table->string('hotel_slug');
+            $table->text('hotel_description');
+            $table->string('hotel_image');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        Schema::dropIfExists('hotels');
     }
 };

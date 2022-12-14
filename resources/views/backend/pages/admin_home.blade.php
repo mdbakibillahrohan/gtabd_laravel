@@ -26,6 +26,14 @@
                     </div>
                 </a>
             </div>
+            <div class="col-md-3 ">
+                <a href="{{ route('hotels.list') }}">
+                    <div class="border text-center py-3 bg-success h-12 rounded">
+                        <h3 class="text-light">{{ $HotelsCount }}</h3>
+                        <span class="fw-bold text-light">Added Hotels</span>
+                    </div>
+                </a>
+            </div>
 
         </div>
     </div>

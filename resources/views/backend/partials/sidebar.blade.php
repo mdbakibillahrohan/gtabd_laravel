@@ -72,9 +72,24 @@
         </a>
         <div id="packagesCollapse" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Country:</h6>
+                <h6 class="collapse-header">Packages:</h6>
                 <a class="collapse-item" href="{{ route('packages.add') }}">Add Package</a>
                 <a class="collapse-item" href="{{ route('packages.list') }}">List of Packages</a>
+
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#hotelsCollapse"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-hotel"></i>
+            <span>Hotels</span>
+        </a>
+        <div id="hotelsCollapse" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Hotels:</h6>
+                <a class="collapse-item" href="{{ route('hotels.add') }}">Add Hotel</a>
+                <a class="collapse-item" href="{{ route('hotels.list') }}">List of Hotels</a>
 
             </div>
         </div>

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.frontend_layouts')
 @section('frontend-section')
-    @if ($HomeElements[0]->is_show)
+    @if ($HomeElements['hero-section'] == 1)
         <!-- hero section started here  -->
         <div class="hero">
             <div class="bg-img">
@@ -308,7 +308,7 @@
     @endif
 
 
-    @if ($HomeElements[1]->is_show)
+    @if ($HomeElements['icon-section'] == 1)
         <!-- here started the features section  -->
         <div class="features def-m-p">
             <div class="container">
@@ -351,82 +351,33 @@
 
 
 
-
-
-    <!-- here started the top hotels section -->
-    <div class="lightening-deals def-m-p">
-        <div class="container">
-            <h2 class="section-title">Top Hotels</h2>
-            <div class="lightening-carousel owl-carousel owl-theme">
-                @foreach ($LighteningPackages as $Light)
-                    <div class="lightening-deals-item">
-                        <div class="img">
-                            <img src="{{ asset('storage/app/' . $Light->package_image) }}" alt="" />
-                        </div>
-                        <div class="content">
-                            <h5 class="title my-3">
-                                {{ $Light->package_title }}
-                            </h5>
-                            <div class="tour-details mb-1 d-flex">
-                                <div class="day me-2">
-                                    <i class="fa-solid fa-calendar"></i>
-                                    <span>{{ $Light->package_duration }} Days</span>
-                                </div>
-                                <div class="address">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <span>{{ $Light->package_city_name }}, {{ $Light->country->country_name }}</span>
-                                </div>
-                            </div>
-                            <div class="financial-details">
-                                <span> <b>BDT {{ $Light->package_price_single }}/</b> Person</span>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-
-            </div>
-        </div>
-    </div>
-    <!-- here ended the lightening deals section  -->
-
-
-
-
-
-    @if ($HomeElements[2]->is_show)
-        <!-- here started the lightening deals section -->
+    @if ($HomeElements['top-hotel'] == 1)
+        <!-- here started the top hotels section -->
         <div class="lightening-deals def-m-p">
             <div class="container">
-                <h2 class="section-title">Lightening Deals</h2>
+                <h2 class="section-title">Top Hotels</h2>
                 <div class="lightening-carousel owl-carousel owl-theme">
-                    @foreach ($LighteningPackages as $Light)
-                        <div class="lightening-deals-item">
-                            <div class="img">
-                                <img src="{{ asset('storage/app/' . $Light->package_image) }}" alt="" />
-                            </div>
-                            <div class="content">
-                                <h5 class="title my-3">
-                                    {{ $Light->package_title }}
-                                </h5>
-                                <div class="tour-details mb-1 d-flex">
-                                    <div class="day me-2">
-                                        <i class="fa-solid fa-calendar"></i>
-                                        <span>{{ $Light->package_duration }} Days</span>
-                                    </div>
-                                    <div class="address">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        <span>{{ $Light->package_city_name }}, {{ $Light->country->country_name }}</span>
+                    @foreach ($TopHotels as $Hotel)
+                        <a href="{{ route('hotel-details', $Hotel->hotel_slug) }}">
+                            <div class="lightening-deals-item">
+                                <div class="img">
+                                    <img src="{{ asset('storage/app/' . $Hotel->hotel_image) }}" alt="" />
+                                </div>
+                                <div class="content">
+                                    <h5 class="title my-3">
+                                        {{ $Hotel->hotel_name }}
+                                    </h5>
+                                    <div class="tour-details mb-1 d-flex">
+
+                                        <div class="address">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <span>{{ $Hotel->hotel_city_name }}, {{ $Hotel->country->name }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="financial-details">
-                                    <span> <b>BDT {{ $Light->package_price_single }}/</b> Person</span>
-                                </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
-
-
                 </div>
             </div>
         </div>
@@ -436,7 +387,51 @@
 
 
 
-    @if ($HomeElements[3]->is_show)
+
+
+    @if ($HomeElements['lightening-deals'] == 1)
+        <!-- here started the lightening deals section -->
+        <div class="lightening-deals def-m-p">
+            <div class="container">
+                <h2 class="section-title">Lightening Deals</h2>
+                <div class="lightening-carousel owl-carousel owl-theme">
+                    @foreach ($LighteningPackages as $Light)
+                        <a href="{{ route('package-details', $Light->package_slug) }}">
+                            <div class="lightening-deals-item">
+                                <div class="img">
+                                    <img src="{{ asset('storage/app/' . $Light->package_image) }}" alt="" />
+                                </div>
+                                <div class="content">
+                                    <h5 class="title my-3">
+                                        {{ $Light->package_title }}
+                                    </h5>
+                                    <div class="tour-details mb-1 d-flex">
+                                        <div class="day me-2">
+                                            <i class="fa-solid fa-calendar"></i>
+                                            <span>{{ $Light->package_duration }} Days</span>
+                                        </div>
+                                        <div class="address">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <span>{{ $Light->package_city_name }}, {{ $Light->country->name }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="financial-details">
+                                        <span> <b>BDT {{ $Light->package_price_single }}/</b> Person</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <!-- here ended the lightening deals section  -->
+    @endif
+
+
+
+
+    @if ($HomeElements['packages'] == 1)
         <!-- here started the popular package section -->
         <section class="popular-package def-m-p">
             <div class="container">
@@ -485,7 +480,7 @@
                                                 <i class="fa-solid fa-star"></i>
                                                 <div class="ms-2 small">9 Packages</div>
                                             </div>
-                                            <h5 class="my-1">{{ $Package->country->country_name }}</h5>
+                                            <h5 class="my-1">{{ $Package->country->name }}</h5>
                                             <span class="text-primary">
                                                 <small class="me-1">Starts From</small> BDT
                                                 {{ $Package->package_price_single }}</span>
@@ -503,7 +498,7 @@
         <!-- here ended the popular package section  -->
     @endif
 
-    @if ($HomeElements[4]->is_show)
+    @if ($HomeElements['cheapest-flight'] == 1)
         <!-- here started cheapest flight section  -->
         <section class="cheapest-flight def-m-p">
             <div class="container">
@@ -619,6 +614,11 @@
             text-decoration: none;
             color: #000000;
         }
+
+        a:hover {
+            text-decoration: none;
+            color: #000000;
+        }
     </style>
 
     <script>
@@ -648,7 +648,7 @@
             let elementData = '';
             for (let a = 0; a < countryForSelect.length; a++) {
                 elementData = elementData +
-                    `<option value="${countryForSelect[a].id}" > ${countryForSelect[a].country_name} </option>`;
+                    `<option value="${countryForSelect[a].id}" > ${countryForSelect[a].name} </option>`;
                 element.innerHTML = elementData;
             }
 

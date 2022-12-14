@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
+use App\Models\Hotel;
 use App\Models\Package;
 use App\Models\Visa;
 use Illuminate\Http\Request;
@@ -13,17 +14,25 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $Countries = Country::all();
         $HomeElements = DB::table('homeelements')->get();
+        $Home = array();
+        for ($i = 0; $i < sizeof($HomeElements); $i++) {
+            $Home[$HomeElements[$i]->identity] = $HomeElements[$i]->is_show;
+        }
+
+
+        $Countries = Country::all();
         $Packages = Package::all()->except('is_featured', 1);
         $FeaturedPackage = Package::where('is_featured', 1)->first();
         $LighteningPackages = Package::where('is_lightening', 1)->get();
+        $Hotels = Hotel::all();
         return view('frontend.pages.home', [
             'Countries' => $Countries,
-            'HomeElements' => $HomeElements,
+            'HomeElements' => $Home,
             'Packages' => $Packages,
             'FeaturedPackage' => $FeaturedPackage,
             'LighteningPackages' => $LighteningPackages,
+            'TopHotels' => $Hotels
         ]);
     }
 

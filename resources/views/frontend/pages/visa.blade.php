@@ -4,7 +4,7 @@
     <div class="visa-feature-image">
         <img src="{{ asset('storage/app/' . $Visa->image) }}" class="visa-image" alt="">
 
-        <h1 class="title logo-yellow-color">{{ $Visa->country->country_name }}</h1>
+        <h1 class="title logo-yellow-color">{{ $Visa->country->name }}</h1>
     </div>
     <!-- here started the visa details section  -->
     <div class="visa-details container">
@@ -49,7 +49,7 @@
             <div class="col-lg-9">
                 <div class="visa-text border rounded mb-5 p-5">
                     <div class="title logo-blue-color text-center my-3">
-                        <h1>{{ $Visa->country->country_name }} Visa Service From Bangladesh</h1>
+                        <h1>{{ $Visa->country->name }} Visa Service From Bangladesh</h1>
                     </div>
                     <div class="box">
                         <?php echo $Visa->description; ?>
@@ -102,7 +102,7 @@
             let elementData = '';
             for (let a = 0; a < countryForSelect.length; a++) {
                 elementData = elementData +
-                    `<option value="${countryForSelect[a].id}" > ${countryForSelect[a].country_name} </option>`;
+                    `<option value="${countryForSelect[a].id}" > ${countryForSelect[a].name} </option>`;
                 element.innerHTML = elementData;
             }
 
