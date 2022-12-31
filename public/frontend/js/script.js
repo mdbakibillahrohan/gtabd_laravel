@@ -3,16 +3,22 @@
 // here started the code
 document.addEventListener("DOMContentLoaded", function (event) {
     console.log(event)
+
     let tab_buttons = document.getElementsByClassName('tab-btn');
+    let hero = document.getElementById("hero");
     for (let n = 0; n < tab_buttons.length; n++) {
         tab_buttons[n].addEventListener("click", () => {
             if (tab_buttons[n].getAttribute('for') == "visa") {
+                hero.style.height = "100vh";
                 changeTab("visa", "single-tab", true, "tabs-title", `Best Visa Processing Agency in Bangladesh`);
                 changeTabBtn(tab_buttons[n], "tab-btn", 'tab-active');
             } if (tab_buttons[n].getAttribute("for") == "flight") {
                 changeTab("flight", "single-tab", true, "tabs-title", `Welcome to GTA! Find Flights, Hotels & Tour Packages`);
                 changeTabBtn(tab_buttons[n], "tab-btn", 'tab-active');
             } if (tab_buttons[n].getAttribute("for") == "hotel") {
+                if (window.innerWidth >= 480) {
+                    hero.style.height = "120vh";
+                }
                 changeTab("hotel", "single-tab", true, "tabs-title", `Find Best Rated Deals on GTA Hotels`);
                 changeTabBtn(tab_buttons[n], "tab-btn", 'tab-active');
             }
@@ -47,6 +53,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     //     countryOnchangeData(e.returnValue, 'visa-search-form');
     // })
 
+
+    // activating hotel tab
+    if (window.innerWidth >= 480) {
+        hero.style.height = "120vh";
+    }
+    changeTab("hotel", "single-tab", true, "tabs-title", `Find Best Rated Deals on GTA Hotels`);
+    changeTabBtn(tab_buttons[n], "tab-btn", 'tab-active');
 
 
 

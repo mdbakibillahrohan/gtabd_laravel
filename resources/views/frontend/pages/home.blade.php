@@ -2,10 +2,10 @@
 @section('frontend-section')
     @if ($HomeElements['hero-section'] == 1)
         <!-- hero section started here  -->
-        <div class="hero">
-            <div class="bg-img">
+        <div id="hero" class="hero">
+            {{-- <div class="bg-img">
                 <img src="{{ asset('public/frontend/img/banner.webp') }}" alt="" />
-            </div>
+            </div> --}}
             <div class="content">
                 <div class="tabs">
                     <h2 id="tabs-title" class="title text-center">
@@ -17,14 +17,15 @@
                                 <i class="fa-solid fa-plane"></i>
                                 Flight
                             </div>
-                            <div for="visa" class="tab-btn tab-active">
-                                <i class="fa-solid fa-globe"></i>
-                                Visa
-                            </div>
-                            <div for="hotel" class="tab-btn">
+                            <div for="hotel" class="tab-btn tab-active">
                                 <i class="fa-solid fa-hotel"></i>
                                 Hotels
                             </div>
+                            <div for="visa" class="tab-btn ">
+                                <i class="fa-solid fa-globe"></i>
+                                Visa
+                            </div>
+
                         </div>
                         <div class="tab-content">
                             <div id="tab_flight" class="single-tab d-none">
@@ -250,7 +251,15 @@
                             </div>
 
 
-                            <div id="tab_visa" class="single-tab">
+
+                            <div id="tab_hotel" class="single-tab">
+                                <div class="tab-content d-flex justify-content-center">
+                                    <div id="adgshp-1646063954"></div>
+
+                                </div>
+                            </div>
+
+                            <div id="tab_visa" class="d-none single-tab">
 
                                 <div class="visa-content my-5">
 
@@ -292,11 +301,6 @@
                                     </form>
 
 
-                                </div>
-                            </div>
-                            <div id="tab_hotel" class="d-none single-tab">
-                                <div class="tab-content d-flex justify-content-center">
-                                    <div id="adgshp338609613"></div>
                                 </div>
                             </div>
                         </div>
@@ -619,6 +623,24 @@
             text-decoration: none;
             color: #000000;
         }
+
+
+
+        #tab_hotel {
+            background-color: #0B7CC1;
+            padding: 60px 0px;
+            margin: 0;
+            border-radius: 20px;
+        }
+
+        @media screen and (max-width: 480px) {
+            #tab_hotel {
+                margin: 0;
+                border-radius: 20px;
+                background-color: #fff;
+                padding: 0px;
+            }
+        }
     </style>
 
     <script>
@@ -658,24 +680,49 @@
 
     <script type="text/javascript" src="//cdn0.agoda.net/images/sherpa/js/sherpa_init1_08.min.js"></script>
     <script type="text/javascript">
-        var stg = new Object();
-        stg.crt = "86666600997";
-        stg.version = "1.04";
-        stg.id = stg.name = "adgshp338609613";
-        stg.width = "320px";
-        stg.height = "430px";
-        stg.ReferenceKey = "oGln8zMa2axkTYeWLS2xBQ==";
-        stg.Layout = "SquareCalendar";
-        stg.Language = "en-us";
-        stg.Cid = "1780729";
-        stg.DestinationName = "";
-        stg.OverideConf = true;
-        new AgdSherpa(stg).initialize();
+        if (window.screen.width <= 480) {
+            var stg = new Object();
+            stg.crt = "86666600997";
+            stg.version = "1.04";
+            // stg.id = stg.name = "adgshp338609613";
+            stg.id = stg.name = "adgshp-1646063954";
+            stg.width = "320px";
+            stg.height = "430px";
+            stg.ReferenceKey = "oGln8zMa2axkTYeWLS2xBQ==";
+            stg.Layout = "SquareCalendar";
+            stg.Language = "en-us";
+            stg.Cid = "1780729";
+            stg.DestinationName = "";
+            stg.OverideConf = true;
+            new AgdSherpa(stg).initialize();
 
-        setTimeout(() => {
-            let agoda = document.getElementById("adgshp338609613");
-            agoda.style.height = "430px";
+            setTimeout(() => {
+                let agoda = document.getElementById("adgshp-1646063954");
+                agoda.style.height = "430px";
 
-        }, 1000);
+            }, 1000);
+        } else {
+            var stg = new Object();
+            stg.crt = "4142827651311";
+            stg.version = "1.04";
+            stg.id = stg.name = "adgshp-1646063954";
+            stg.width = "1050px";
+            stg.height = "298px";
+            stg.ReferenceKey = "gPF+T6ENUufZKtS6Pw1KEQ==";
+            stg.Layout = "Oneline";
+            stg.Language = "en-us";
+            stg.Cid = "1780729";
+            stg.DestinationName = "";
+            stg.OverideConf = false;
+            new AgdSherpa(stg).initialize();
+        }
     </script>
+
+
+    <script type="text/javascript"></script>
+
+    {{-- <script type="text/javascript" src="//cdn0.agoda.net/images/sherpa/js/sherpa_init1_08.min.js"></script>
+    <script type="text/javascript">
+
+    </script> --}}
 @endsection
