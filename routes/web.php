@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Hotel\HotelFrontendController;
+use App\Http\Controllers\Blog\BlogFrontendController;
 use App\Http\Controllers\Packages\PackagesFrontendController;
 use App\Http\Controllers\Visa\VisaFrontendController;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,8 @@ Route::get('/tour-packages', [PackagesFrontendController::class, 'index'])->name
 Route::get('package/{slug}', [PackagesFrontendController::class, 'show'])->name('package-details');
 Route::get('hotel/{slug}', [HotelFrontendController::class, 'show'])->name('hotel-details');
 Route::get('/hotels', [HotelFrontendController::class, 'index'])->name('hotel-list');
+Route::get('/blogs', [BlogFrontendController::class, 'index'])->name('blog-list');
+Route::get('blog/{slug}', [BlogFrontendController::class, 'show'])->name('blog-details');
 
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
@@ -79,6 +82,21 @@ Route::middleware('auth')->group(function () {
             });
         });
         // closed packages routes here
+
+
+        // here started the blog routes
+        Route::controller('App\Http\Controllers\Blog\BlogController')->group(function () {
+            Route::prefix('blog')->group(function () {
+                Route::get('/', 'index')->name('blog.list');
+                Route::get('/add', 'create')->name('blog.add');
+                Route::post('/store', 'store')->name('blog.store');
+                Route::get('/edit/{id}', 'edit')->name('blog.edit');
+                Route::post('/update/{id}', 'update')->name('blog.update');
+                Route::get('/delete/{id}', 'destroy')->name('blog.destroy');
+            });
+        });
+        // here ended the blog routes
+
 
 
         // here started the hotels routes

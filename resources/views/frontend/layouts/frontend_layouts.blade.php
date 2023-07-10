@@ -15,16 +15,13 @@
     <link rel="stylesheet" href="{{ Asset('public/frontend/css/owl.theme.default.css') }}" />
     <link rel="stylesheet" href="{{ Asset('public/frontend/css/style.css') }}" />
     <link rel="stylesheet" href="{{ Asset('public/frontend/css/responsive.css') }}">
+    <script src="{{ asset('public/frontend/js/function.js') }}"></script>
 </head>
 
 <body>
     <div class="root">
-
-
-
         <!-- modal section started here  -->
         <!-- Button trigger modal -->
-
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -122,7 +119,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Flight</a>
+                            <a class="nav-link" href="{{url('/')}}">Flight</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('hotel-list') }}">Hotel</a>
@@ -131,7 +128,7 @@
                             <a class="nav-link" href="{{ route('packages-list') }}">Tour Packages</a>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Visa
@@ -140,30 +137,15 @@
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Blog
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                            </ul>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('blog-list')}}">Blog</a>
+
+                        </li>
+                        {{-- <li class="nav-item">
                             <a class="nav-link">News and Media</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Promotions
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                            </ul>
-                        </li>
+                        </li> --}}
+
                     </ul>
                     <hr>
                     <div class="ms-auto user-btn d-flex justify-content-center align-items-center">
@@ -189,6 +171,19 @@
                         <h5 class="heading">Company</h5>
                         <div class="links mt-3">
                             <a class="footer-link mb-2" href="#">About Us</a>
+                        </div>
+                        <div>
+                            <span class="fw-bold">Address: </span>
+                            <p>11<sup>th</sup> Floor, #1202 <br> 37/2 Zaman Tower, Puraton Paltan, Dhaka</p>
+                        </div>
+                        <div>
+                            <span class="fw-bold">Contact Number: </span>
+                            <p>+880 1704170308</p>
+                            <p></p>
+                        </div>
+                        <div>
+                            <span class="fw-bold">Email Address: </span>
+                            <p>info@gtabd.com</p>
                         </div>
                     </div>
 
@@ -242,7 +237,6 @@
     <script src="{{ asset('public/frontend/js/caurosel.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ asset('public/frontend/js/select2_usage.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/function.js') }}"></script>
     <script src="{{ asset('public/frontend/js/flight_book.js') }}"></script>
     <script type="module" src="{{asset('public/frontend/js/script.js')}}"></script>
 

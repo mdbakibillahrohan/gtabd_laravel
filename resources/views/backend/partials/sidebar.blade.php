@@ -95,7 +95,21 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#blogcollapse"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-blog"></i>
+            <span>Blog</span>
+        </a>
+        <div id="blogcollapse" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Hotels:</h6>
+                <a class="collapse-item" href="{{ route('blog.add') }}">Add Blog</a>
+                <a class="collapse-item" href="{{ route('blog.list') }}">List of Blogs</a>
 
+            </div>
+        </div>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
