@@ -169,9 +169,6 @@
 
                     <div class="col-md-3 col-6 footer-block">
                         <h5 class="heading">GLOBAL TRAVEL ADVANTAGE</h5>
-                        <div class="links mt-3">
-                            <a class="footer-link mb-2" href="#">About Us</a>
-                        </div>
                         <div>
                             <span class="fw-bold">Address: </span>
                             <p>Zaman Tower, Level-12, Office 1202, 37/2 Purana Paltan (Culvert Road) Dhaka-1000</p>
