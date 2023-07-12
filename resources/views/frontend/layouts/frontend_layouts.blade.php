@@ -119,7 +119,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/')}}">Flight</a>
+                            <a class="nav-link" href="{{ url('/') }}">Flight</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('hotel-list') }}">Hotel</a>
@@ -139,7 +139,7 @@
                             </ul>
                         </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('blog-list')}}">Blog</a>
+                            <a class="nav-link" href="{{ route('blog-list') }}">Blog</a>
 
                         </li>
                         {{-- <li class="nav-item">
@@ -174,12 +174,11 @@
                         </div>
                         <div>
                             <span class="fw-bold">Address: </span>
-                            <p>11<sup>th</sup> Floor, #1202 <br> 37/2 Zaman Tower, Puraton Paltan, Dhaka</p>
+                            <p>Zaman Tower, Level-12, Office 1202, 37/2 Purana Paltan (Culvert Road) Dhaka-1000</p>
                         </div>
                         <div>
                             <span class="fw-bold">Contact Number: </span>
-                            <p>+880 1704170308</p>
-                            <p></p>
+                            <p>+880 1704170300</p>
                         </div>
                         <div>
                             <span class="fw-bold">Email Address: </span>
