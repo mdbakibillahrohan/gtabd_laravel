@@ -168,7 +168,7 @@
 
 
                     <div class="col-md-3 col-6 footer-block">
-                        <h5 class="heading">Company</h5>
+                        <h5 class="heading">GLOBAL TRAVEL ADVANTAGE</h5>
                         <div class="links mt-3">
                             <a class="footer-link mb-2" href="#">About Us</a>
                         </div>
